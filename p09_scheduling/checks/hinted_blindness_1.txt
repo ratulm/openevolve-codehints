@@ -1,0 +1,3 @@
+(a) The program decides the order in which one machine runs 36 jobs, with no idle time. The goal is to minimize total weighted tardiness. There is a hidden setup cost: switching between job families (family = index % 4) adds 3 time units. The current code just sorts by earliest due date and ignores weights, processing times and families.
+
+(b) combined_score = 10608 / Σ_j w_j·max(0, C_j − d_j), where C_j is job j's completion time including setups. Invalid output scores 0. The current score of 0.4696 means a cost of about 22,590.

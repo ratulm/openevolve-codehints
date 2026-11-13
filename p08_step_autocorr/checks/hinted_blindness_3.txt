@@ -1,0 +1,6 @@
+(a) The program picks 50 non-negative step heights a₀..a₄₉. The goal is to make the peak of their autoconvolution as small as possible after weighting each shift by its position. It is an asymmetric version of the autoconvolution-minimisation problem. Valid output is 50 finite values, all ≥ 0 and not all zero.
+
+(b) My best guess:
+combined_score = 0.0287461148884 / V, with V = maxₖ[(1 + 3k/98)·(a∗a)ₖ] / (Σaᵢ)².
+
+The score is 0 if the output is invalid or the run exceeds 30 seconds. The current ramp scores 0.4112, so V ≈ 0.0699.

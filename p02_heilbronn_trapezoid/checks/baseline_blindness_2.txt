@@ -1,0 +1,3 @@
+(a) It looks like a Heilbronn-type problem: place 13 points in a bounded region (here an ellipse inside a clipped triangle-like area) so that the smallest triangle formed by any three points is as large as possible.
+
+(b) My best guess is `combined_score = (min area over all point triples / reference area) / best known value`. The reference area is either the convex hull's area or the area of the containing triangle. I couldn't run the check because the command wasn't approved. By hand, the hull version gives about 0.57, not 0.1653, so the reference area and benchmark value are uncertain.

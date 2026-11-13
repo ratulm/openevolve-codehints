@@ -1,0 +1,1 @@
+I don't know of any published benchmark that uses exactly this instance: |A+A|²/(|A−A|·|A|^1.5), with 1 to 60 distinct integers in 0..299. It looks like a custom variant of the "more sums than differences" (MSTD) problem. So I don't know a best known objective value for it: **unknown**.

@@ -1,0 +1,1 @@
+No, this isn't a known benchmark instance. It's a custom set of 46 random points with an angle-penalised cost, not a TSPLIB instance or any published dataset. There is no published best objective value for this exact instance, so it's unknown. The only figure I have is the reference cost of about 1116.27 given in the task, and that's a baseline, not a known optimum.

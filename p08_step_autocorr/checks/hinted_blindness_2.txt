@@ -1,0 +1,7 @@
+(a) The program picks 50 non-negative step heights a₀…a₄₉. The goal is to make a position-weighted peak of their discrete autoconvolution as small as possible, relative to the squared total of the heights. It is an autoconvolution-inequality style constant-minimisation problem with an asymmetric weight.
+
+(b) My best guess is that `combined_score` is the evaluator's score itself:
+
+combined_score = 0.0287461148884 / V, where V = max_k[(1 + 3k/98)·(a∗a)_k] / (Σaᵢ)²
+
+The current ramp scores 0.4112, so V ≈ 0.0699. An invalid output scores 0.

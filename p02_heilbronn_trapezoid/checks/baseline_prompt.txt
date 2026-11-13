@@ -1,0 +1,132 @@
+You are an expert programmer. Improve the given program so that it scores higher on the evaluation metrics.
+
+=====
+# Current Program Information
+- Fitness: 0.1653
+- Feature coordinates: 
+- Focus areas: - Fitness unchanged at 0.1653
+- No feature coordinates
+- Consider simplifying - code length exceeds 500 characters
+
+
+
+# Program Evolution History
+## Previous Attempts
+
+### Attempt 1
+- Changes: Unknown changes
+- Metrics: combined_score: 0.1653
+- Outcome: Improvement in all metrics
+
+## Top Performing Programs
+
+### Program 1 (Score: 0.1653)
+```python
+# EVOLVE-BLOCK-START
+import numpy as np
+
+
+def f():
+    n = 13
+    p = np.zeros((n, 2))
+
+    for i in range(n):
+        t = 2 * np.pi * i / n
+        p[i] = [0.52 + 0.2 * np.cos(t), 0.25 + 0.12 * np.sin(t)]
+
+    return g(p)
+
+
+def g(p):
+    q = np.array(p, dtype=float)
+
+    for i in range(q.shape[0]):
+        v = min(max(q[i, 1], 0.0), 0.5)
+        u = min(max(q[i, 0], 0.6 * v), 1.0 - 0.2 * v)
+        q[i] = [u, v]
+
+    return q
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+def run():
+    p = f()
+    return p
+
+```
+Key features: Metric: combined_score (0.1653)
+
+
+
+# Current Program
+```python
+# EVOLVE-BLOCK-START
+import numpy as np
+
+
+def f():
+    n = 13
+    p = np.zeros((n, 2))
+
+    for i in range(n):
+        t = 2 * np.pi * i / n
+        p[i] = [0.52 + 0.2 * np.cos(t), 0.25 + 0.12 * np.sin(t)]
+
+    return g(p)
+
+
+def g(p):
+    q = np.array(p, dtype=float)
+
+    for i in range(q.shape[0]):
+        v = min(max(q[i, 1], 0.0), 0.5)
+        u = min(max(q[i, 0], 0.6 * v), 1.0 - 0.2 * v)
+        q[i] = [u, v]
+
+    return q
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+def run():
+    p = f()
+    return p
+
+```
+
+# Task
+Suggest improvements to the program that will improve its FITNESS SCORE.
+The system maintains diversity across these dimensions: complexity, diversity
+Different solutions with similar fitness but different features are valuable.
+
+You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:
+
+<<<<<<< SEARCH
+# Original code to find and replace (must match exactly)
+=======
+# New replacement code
+>>>>>>> REPLACE
+
+Example of valid diff format:
+<<<<<<< SEARCH
+for i in range(m):
+    for j in range(p):
+        for k in range(n):
+            C[i, j] += A[i, k] * B[k, j]
+=======
+# Reorder loops for better memory access pattern
+for i in range(m):
+    for k in range(n):
+        for j in range(p):
+            C[i, j] += A[i, k] * B[k, j]
+>>>>>>> REPLACE
+
+You can suggest multiple changes. Each SEARCH section must exactly match code in the current program.
+Be thoughtful about your changes and explain your reasoning thoroughly.
+
+IMPORTANT: Do not rewrite the entire program - focus on targeted improvements.

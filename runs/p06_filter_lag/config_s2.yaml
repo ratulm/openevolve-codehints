@@ -1,0 +1,39 @@
+# Hints study, 10 problems, Opus 5.5 only. Identical for every problem and arm.
+# The system message is deliberately generic so it carries no task-specific hints.
+max_iterations: 20
+checkpoint_interval: 5
+log_level: "INFO"
+random_seed: 2
+
+llm:
+  provider: "claude_code"
+  models:
+    - name: "us.anthropic.claude-opus-5-5"
+      weight: 1.0
+      max_tokens: 16000
+      timeout: 300
+      max_budget_usd: 1.0
+  retries: 3
+  retry_delay: 5
+
+prompt:
+  system_message: >
+    You are an expert programmer. Improve the given program so that it
+    scores higher on the evaluation metrics.
+  num_top_programs: 3
+
+database:
+  population_size: 60
+  archive_size: 25
+  num_islands: 4
+  elite_selection_ratio: 0.3
+  exploitation_ratio: 0.7
+
+evaluator:
+  timeout: 60
+  cascade_evaluation: false
+  parallel_evaluations: 4
+  use_llm_feedback: false
+
+diff_based_evolution: true
+max_code_length: 20000

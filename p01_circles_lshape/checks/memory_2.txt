@@ -1,0 +1,1 @@
+I don't recognise this as a standard benchmark instance. It looks like a custom variant of the classic circle-packing-in-a-square problems, like the AlphaEvolve or Packomania sum-of-radii instances, with an L-shaped region and an x-weighted objective added. I don't know of any published best value for exactly this setup, so the best known objective is **unknown**.

@@ -1,0 +1,1 @@
+This isn't a benchmark instance I recognise. It looks like a custom task: the 64 signals are hidden, the noise seed isn't given, and `reference_cost` (the baseline the score divides by) isn't defined. The best known objective value for exactly this instance is **unknown**. Any number I gave would be an estimate, not a published result.

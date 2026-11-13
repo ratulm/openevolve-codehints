@@ -1,0 +1,3 @@
+**(a)** This looks like single-machine scheduling, most likely total weighted tardiness. `a` holds processing times (2–12), `b` holds due dates and `c` holds weights (1–9). The function returns an order of the 36 jobs. Right now it sorts by earliest due date and ignores the weights.
+
+**(b)** My best guess is `combined_score = reference_TWT / TWT(s)`. Here TWT(s) = Σ cᵢ·max(0, Cᵢ − bᵢ), where Cᵢ is when job i finishes in the order s, and the reference is a best-known or optimal value. On that reading, the current order has about 2.1× the reference weighted tardiness. Weight-aware rules (ATC, WSPT) plus local search should score higher.

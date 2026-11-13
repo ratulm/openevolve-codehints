@@ -1,0 +1,6 @@
+(a) The program places 18 points inside an annulus (inner radius 0.4, outer radius 1.0). The goal is to make the closest pair of points as far apart as possible under a custom distance: horizontal gaps count 3× as much as vertical gaps, and the result is scaled by a factor that depends on the pair's average height.
+
+(b) My best guess:
+combined_score = min over i<j of [ sqrt((3Δx)² + Δy²) · (1 + 0.2(yᵢ+yⱼ)) ] / 0.9314
+
+It is 0 if the output has the wrong shape, contains non-finite values, has any point outside the annulus (tolerance 1e-9), raises an exception or runs longer than 30 s.

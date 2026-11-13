@@ -1,0 +1,1 @@
+I don't know of this as a standard benchmark instance. It looks like a custom variant of the "more sums than differences" (MSTD) set problem. I don't know of any published best value for this exact objective and these limits (at most 60 elements, range 0..299, |A|^1.5 normalisation), so the best known value is **unknown**.

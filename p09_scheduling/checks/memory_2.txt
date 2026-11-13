@@ -1,0 +1,1 @@
+I don't recognise this as a published benchmark instance. It looks randomly generated: 36 jobs, families set by index mod 4, and a 3-unit setup time between families, which doesn't match OR-Library or the other standard weighted-tardiness sets. I have no record of a best known objective value for it, so that value is unknown.

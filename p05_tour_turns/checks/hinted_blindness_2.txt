@@ -1,0 +1,9 @@
+(a) The program plans a closed tour through 46 fixed 2D points. It must return a permutation of 0..45 and is scored on a cost that mixes tour length with a penalty for turning, so it is a travelling-salesman variant that rewards smooth, low-turn routes. The current version just sorts points by their angle around the centroid.
+
+(b) My best guess, based on the comments in the code:
+
+combined_score = 1116.27 / (L + 10·Σθᵢ²)
+
+- L is the closed tour's Euclidean length.
+- θᵢ is the turning angle in radians at each of the 46 vertices.
+- An invalid output, an exception or a run over 30 seconds scores 0.

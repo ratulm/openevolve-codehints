@@ -1,0 +1,5 @@
+**(a)** It looks like a point-placement problem: put 13 points inside a region shaped like a triangle, probably an equilateral one. The clamp keeps y in [0, 0.5], and the left edge x ≥ 0.6y is close to x = y/√3. My best guess is a Heilbronn-type problem, where the goal is to make the smallest triangle formed by any three points as large as possible.
+
+**(b)** Best guess, not confirmed against the evaluator: the smallest-triangle area relative to the best known result.
+
+combined_score = (min over triples of area(pᵢ,pⱼ,pₖ) / area(region)) / best_known_value(n=13)

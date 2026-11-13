@@ -1,0 +1,1 @@
+I don't know of any published benchmark that matches this instance. It reads like a custom-made task: an invented law, its own scoring setup and an asymmetric loss. The best known objective value is unknown. By how the score is defined, the offline reference model scores 1.0, but I know of no published best result for exactly this instance.

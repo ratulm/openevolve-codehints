@@ -1,0 +1,9 @@
+I didn't run or inspect any evaluator, so both answers are guesses based only on the code.
+
+**(a)** The program outputs a probability vector of 50 non-negative weights that sum to 1. Right now the weights just rise in a straight line (aᵢ ∝ i+1). It most likely stands for a step function, as in an autocorrelation-inequality problem.
+
+**(b)** My best guess is a ratio comparing this vector to a known best result:
+
+`combined_score ≈ C_best / C(a)`, with `C(a) = max_k (a∗a)_k / (Σa)²`
+
+Here a∗a is the vector convolved with itself (its autoconvolution), and smaller C(a) is better. A perfect match would score 1, so 0.4112 means the straight-line weights are well short of the best known result.

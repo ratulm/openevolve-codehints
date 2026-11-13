@@ -1,0 +1,1 @@
+This isn't a known benchmark instance as far as I know. It's a custom weighted variant of the first autocorrelation inequality, and I'm not aware of any published results for it. The best known objective value for exactly this instance is **unknown**. V_REF = 0.0287461148884 looks like a reference baseline the task defines, not a published record.

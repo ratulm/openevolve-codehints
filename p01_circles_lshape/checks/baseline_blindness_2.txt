@@ -1,0 +1,3 @@
+**(a)** This looks like a circle-packing task. The program places 21 circles in the unit square, on a partial 5×5 grid with spacing 0.12, so that they don't overlap. The goal is to make the radii as large as possible. The `w` term also keeps circles away from the point (0.6, 0.6). That may be a modelled obstacle, but its role is unclear.
+
+**(b)** My best guess, which is uncertain: `combined_score = validity × Σrᵢ / benchmark_sum`, where validity is 0 or 1. Each radius here is about 0.06, so Σr ≈ 1.26. A score of 0.1431 doesn't fit a plain sum-of-radii ratio (that would give about 0.53), so the formula probably includes extra penalties or normalisation.

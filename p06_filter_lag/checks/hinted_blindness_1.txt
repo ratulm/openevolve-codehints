@@ -1,0 +1,7 @@
+(a) The program picks 24 taps for a causal FIR filter. The filter has to denoise piecewise-linear drift signals that contain abrupt jumps and are corrupted by coloured (AR(1), coefficient 0.7) plus white noise. The output must track the jumps quickly, not just smooth the signal.
+
+(b) combined_score is the reference cost divided by the filter's cost over the 64 hidden signals:
+
+combined_score = 1.452 / (E_track + 8·E_lag + 0.1·E_rough)
+
+E_track is the MSE to the clean signal, E_lag is the jump-normalised squared error over the 8 samples after each jump, and E_rough is the mean squared output difference. Any invalid output scores 0.

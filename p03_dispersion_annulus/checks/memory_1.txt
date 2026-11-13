@@ -1,0 +1,1 @@
+As far as I know, this isn't a recognised benchmark instance. It looks like a custom variant of the classic max-min-distance (Tammes-type) packing problem, using an anisotropic, y-weighted metric on an annulus. I don't know of any published best value for this exact setup, and the reference value isn't given, so the best known objective is **unknown**.

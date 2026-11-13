@@ -1,0 +1,24 @@
+1. **What the program is for.** It packs 21 non-overlapping circles into an L-shaped region: the unit square with the top-right block [0.6,1]×[0.6,1] removed. Each circle is worth more the further right it sits. Right now it puts the circles on a small grid in the bottom-left corner, the least valuable area, and then gives each one the largest radius it can have without overlapping its neighbours.
+
+2. **What `combined_score` measures.** This is a guess based on the comments in the code:
+   `combined_score = valid × Σᵢ rᵢ·(0.2 + xᵢ)² / R_ref`, with `R_ref ≈ 1.30`.
+   `valid` is 0 if any of these happen:
+   - the count isn't exactly 21
+   - a circle sticks out of the L-region or into the removed block
+   - two circles overlap by more than 1e-9
+   - the program raises an exception or runs longer than 30 seconds
+
+   Otherwise `valid` is 1. A sanity check fits this guess: small circles near x≈0.06–0.54 would give a weighted sum of about 0.19, and 0.19 / 1.30 ≈ 0.143, which matches the current score of 0.1431.
+
+3. **How I'd raise the score.** Optimise centres and radii together, aiming at the weighted objective:
+   - **Variables:** 63 numbers: x, y and r for each circle.
+   - **Objective:** minimise −Σ r·(0.2+x)². Give SLSQP the analytic gradient so it runs fast.
+   - **Constraints:**
+     - Walls: r ≤ x, r ≤ 1−x, r ≤ y, r ≤ 1−y.
+     - Removed block: the circle must stay clear of the corner block. A smooth way to write this is r ≤ max(0.6−x, 0.6−y) when the centre is in the lower-left quadrant. That max isn't smooth, so I'd instead fix which arm (bottom or left) each circle belongs to at the start, or use the distance to the block's corner point (0.6, 0.6).
+     - Pairwise: (xᵢ−xⱼ)² + (yᵢ−yⱼ)² ≥ (rᵢ+rⱼ)².
+   - **Starting layouts:** many different ones, chosen to favour the valuable areas: big circles along the right side of the bottom strip (x ∈ [0.6,1], y < 0.6), hex-like grids, and random jitter. Run them within a time limit of about 20 seconds.
+   - **Clean-up:** shrink all radii by about 1e-8, check every constraint exactly, and keep the best layout that passes. Fall back to the current greedy layout so the program always returns something valid.
+   - **Optional:** a few basin-hopping perturbations of the best solution so far.
+
+   This should push the score from 0.14 to about 1.0 or above.

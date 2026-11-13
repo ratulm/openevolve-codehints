@@ -1,0 +1,7 @@
+(a) The program places 13 points inside the trapezoid with corners (0,0), (1,0), (0.9,0.5) and (0.3,0.5). It is a variant of the Heilbronn problem: the goal is to make the triangles formed by triples of points large. Right now it starts from a naive layout of points on a small ellipse.
+
+(b) My best guess, taken from the program's comments, uses all 286 triangle areas, each divided by the trapezoid's area (0.4):
+
+combined_score = (min area)^0.25 · (median area)^0.75 / 0.107
+
+The median is the mean of the 143rd and 144th smallest areas. The score is 0 if any point is outside the trapezoid, any three points are collinear, or the run takes longer than 30 seconds.

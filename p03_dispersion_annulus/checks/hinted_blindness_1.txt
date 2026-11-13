@@ -1,0 +1,5 @@
+(a) The program places 18 points inside an annulus (inner radius 0.4, outer radius 1.0) and tries to make the closest pair as far apart as possible. Closeness uses a non-Euclidean distance: horizontal gaps count 3×, and the whole distance is scaled up or down depending on the pair's average height.
+
+(b) combined_score = min over i<j of [ sqrt((3Δx)² + Δy²) · (1 + 0.2(yᵢ+yⱼ)) ] / 0.9314
+
+It is 0 if the output isn't an (18, 2) array of finite values, if any point falls outside the annulus (1e-9 tolerance), or if the run raises an exception or takes over 30 seconds.

@@ -1,0 +1,7 @@
+**(a)** The program is solving a sum-versus-difference set problem, sometimes called "MSTD" (more sums than differences). It has to pick a set A of at most 60 distinct integers in 0..299 that makes |A+A| large compared with |A−A|, while keeping A small.
+
+**(b)** My best guess:
+
+combined_score = |A+A|² / (|A−A| · |A|^1.5) / C, with C ≈ 2.51
+
+This matches the current score. The current set is a 40-term arithmetic progression with |A+A| = |A−A| = 79. That gives 79/40^1.5 ≈ 0.3123, and 0.3123/2.51 ≈ 0.1243. The comment's "about 2.5" is consistent with C ≈ 2.51.

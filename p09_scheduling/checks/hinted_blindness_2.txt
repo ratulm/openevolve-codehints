@@ -1,0 +1,3 @@
+(a) It's a single-machine scheduling problem with 36 jobs and family-dependent setup times, minimizing total weighted tardiness. Job j belongs to family j % 4, and a 3-unit setup is added whenever two consecutive jobs come from different families. The program has to return the processing order as a permutation of 0..35.
+
+(b) `combined_score` = 10608 / Σⱼ wⱼ·max(0, Cⱼ − dⱼ). Here Cⱼ is the completion time including setups and 10608 is the reference schedule's cost. An invalid output, an exception or a run over 30 seconds gives 0. The current earliest-due-date order scores 0.4696, which means a cost of about 22,590.

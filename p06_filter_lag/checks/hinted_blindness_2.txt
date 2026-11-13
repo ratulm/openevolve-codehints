@@ -1,0 +1,3 @@
+(a) The program picks the 24 taps of a causal FIR filter. The filter has to denoise piecewise-linear signals with jumps, where the noise is AR(1) coloured noise plus white noise. It is scored on 64 hidden test signals. A plain 24-tap moving average smooths well but reacts too slowly after jumps.
+
+(b) My best guess is that combined_score = 1.452 / cost, where cost = E_track + 8·E_lag + 0.1·E_rough. Any invalid output (wrong length, non-finite values, a tap outside [-2, 2], an exception, or a run over 30 seconds) scores 0. On this formula, the current score of 0.2285 means the cost is about 6.35.

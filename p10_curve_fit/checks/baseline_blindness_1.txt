@@ -1,0 +1,7 @@
+**(a) The task:** This is a 2D regression problem with extrapolation. The program fits a model to 80 training points `a` (two features each) with targets `b`, then predicts at 50 query points `c`. Many of the `c` points lie well outside the training range: training x₁ runs about 0.6–4 and x₂ about 0–5, while `c` reaches about 7 and 8. The current model ignores the features and predicts the training mean for every point.
+
+**(b) What `combined_score` measures:** I can't see the evaluator, so this is a guess. Most likely it is prediction error on hidden true values at `c`, turned into a score between 0 and 1:
+
+`combined_score = 1 / (1 + RMSE(f(a,b,c), y_true))`
+
+A constant prediction with an RMSE of about 4 would give the observed 0.2.

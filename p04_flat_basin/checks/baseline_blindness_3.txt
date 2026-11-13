@@ -1,0 +1,3 @@
+**(a)** The program is a black-box global minimization task. `f()` has to return a point x in [-4,4]³ that makes `h` as small as possible. `h` is a bumpy surface with five Gaussian wells, plus small sine/cosine ripples, a weak quadratic term and a steep penalty outside the box. The global minimum is probably the narrow well near (-1.85, 1.4, -0.9), which sits next to a wider one. The current code tries only 12 random points.
+
+**(b)** I can't see the evaluator, so this is a guess. My best guess is combined_score = 1 / (1 + (h(p) − h*)), where h* is the true global minimum. It's possibly an exponential version instead: exp(−(h(p) − h*)).

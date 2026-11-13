@@ -1,0 +1,1 @@
+As far as I know, this is not a published benchmark instance. It looks like a custom test function: a constant minus five Gaussian wells, plus ripple and a quadratic term, scored by the mean over a 27-point offset grid. I don't know of any published best value of R(x) or of the score for exactly this instance, so it is **unknown**.

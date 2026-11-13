@@ -1,0 +1,11 @@
+(a) The program picks the 24 taps of a causal FIR filter. The filter has to denoise piecewise-linear drift signals that contain abrupt jumps and are corrupted by AR(1)-coloured plus white Gaussian noise, while still reacting quickly after each jump.
+
+(b) `combined_score` is most likely the score the evaluator describes, computed over its hidden test signals:
+
+combined_score = 1.452 / (E_track + 8·E_lag + 0.1·E_rough)
+
+- E_track is the MSE between the output and the clean signal.
+- E_lag is the jump-normalised squared error over the 8 samples starting at each jump.
+- E_rough is the mean squared first difference of the output.
+
+An invalid output scores 0. The current 24-tap moving average scores 0.2285 because it lags badly after jumps.

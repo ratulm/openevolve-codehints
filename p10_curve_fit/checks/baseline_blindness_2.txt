@@ -1,0 +1,7 @@
+**(a)** It's a 2‑D regression task that tests extrapolation. The model fits 80 training points `a`→`b` and must predict values at 50 query points `c`, many of which lie outside the training range (up to about 7 vs. about 4). `g` is the feature map. Right now it is only a constant column, so every prediction is the training mean.
+
+**(b)** My best guess is that `combined_score` measures error between `run()`'s predictions and hidden true values at `c`:
+
+`combined_score = 1 / (1 + RMSE(pred, y_true))`
+
+A mean-only prediction with an RMSE of about 4 would give 0.2. Another possibility is a clipped R² mapped onto 0–1. I didn't run any checks, so both are inference.

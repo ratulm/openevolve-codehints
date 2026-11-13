@@ -1,0 +1,3 @@
+(a) The program outputs 50 non-negative weights that sum to 1, so it is optimizing a probability vector or step function. The linear ramp 1…50 is just a starting baseline. My best guess is AlphaEvolve's second autocorrelation inequality, which uses step-function heights f on [0,1] and seeks to maximize a ratio of convolution norms.
+
+(b) Best guess: combined_score = ‖f∗f‖₂² / (‖f∗f‖₁ · ‖f∗f‖∞), where c = np.convolve(a, a). This is roughly sum(c²) / (sum(c) · max(c)), and higher is better. I couldn't confirm this because running the check needed approval.

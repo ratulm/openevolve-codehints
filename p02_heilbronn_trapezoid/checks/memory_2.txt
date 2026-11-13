@@ -1,0 +1,1 @@
+I don't know of any published benchmark for this exact setup. It combines 13 points, this particular trapezoid, and a score that blends the smallest and median triangle areas with 0.25/0.75 weights. It looks like a custom variant of the Heilbronn triangle problem. So I can't give a best known objective value for this instance: unknown.

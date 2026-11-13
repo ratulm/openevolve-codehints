@@ -1,0 +1,35 @@
+These answers come from reading the code only. I haven't seen the evaluator.
+
+**1. What the program is for**
+
+It packs 21 non-overlapping circles inside the unit square and returns their centres `p` (shape 21×2) and radii `q`. This matches the circle-packing benchmark used in AlphaEvolve/OpenEvolve, where the goal is to make the radii add up to as much as possible.
+
+- `f()` puts the centres on a grid with 0.12 spacing: three rows of 5, then two rows of 3, all in the bottom-left corner.
+- `g()` sets each radius to its distance from the nearest wall, plus an odd extra cap (the `hypot` term). It then shrinks overlapping pairs in a single greedy pass.
+
+The result is 21 circles of radius 0.06, so the radii sum to about 1.26. A good packing of 21 circles reaches about 2.36, and they use the whole square, not a 0.6×0.6 corner.
+
+**2. What `combined_score` probably measures**
+
+My best guess:
+
+`combined_score ≈ validity × (Σ rᵢ) / target`, with `target` around 2.36 (the best known sum for n = 21), or a similar normalised sum of radii.
+
+That guess doesn't fit the numbers well, though. 1.26 / 2.365 ≈ 0.53, not 0.1431. So one of three things is true:
+- the metric is defined differently (for example, it rewards area or uses another baseline),
+- the evaluator expects a different n, such as 26, and penalises the mismatch,
+- or some of the circles fail its overlap/boundary check. Touching circles plus floating-point error could cause this.
+
+I'd check the evaluator before trusting this formula.
+
+**3. How I'd raise the score**
+
+- **Use the whole square.** Start from a good layout of 21 circles over the full unit square, for example a hexagonal arrangement with rows of 5-4-5-4-3, or rows that alternate in an offset pattern. Also remove the `0.6` `hypot` cap, which has no clear purpose.
+- **Optimise centres and radii together.** Treat all 63 numbers (x, y, r for each circle) as variables. Maximise Σr with `scipy.optimize.minimize` (SLSQP), subject to:
+  - `rᵢ ≤ xᵢ, yᵢ, 1−xᵢ, 1−yᵢ` (stay inside the square)
+  - `‖pᵢ−pⱼ‖ ≥ rᵢ+rⱼ` (no overlaps)
+
+  Run it from several starting layouts with small random nudges and keep the best.
+- **Guarantee a valid answer.** Afterwards, shrink every radius by a tiny amount (about 1e-9), or run the overlap fix until nothing changes. This stops touching circles from failing a strict check.
+
+This kind of approach usually reaches a sum of about 2.3 or more, roughly 1.8× the current value. Whatever the exact formula, the score should rise a lot.

@@ -1,0 +1,9 @@
+I couldn't recover the scorer, and the program doesn't name its task, so both answers are educated guesses. I didn't run anything.
+
+**(a)** The program likely picks a set of at most k=60 distinct integers in [0, 300). I'd guess the set should have some additive structure, such as a Sidon/Golomb-ruler property (distinct pairwise differences or sums) or no 3-term arithmetic progressions. The current answer, 0, 7, …, 273, is itself a 40-term arithmetic progression, which is close to the worst case for those objectives. That fits the low score.
+
+**(b)** My best guess is size times validity:
+
+combined_score ≈ (|A| / k) × (fraction of pairwise differences or sums that are distinct)
+
+I checked simple ratios (such as 39/780 ≈ 0.05 or 79/820 ≈ 0.096) and none reproduces 0.1243 exactly.

@@ -1,0 +1,5 @@
+I haven't run the program or seen the evaluator, so this is an inference.
+
+**(a)** It looks like an AlphaEvolve-style autocorrelation inequality problem, most likely the third one. The program builds a step function on 24 bins and clips it to [−2, 2]. That clipping suggests negative values are allowed. The goal would be to minimise C = max|f∗f| / (∫f)².
+
+**(b)** My best guess is combined_score ≈ C_best_known / C(h), where C(h) = max_t |Σ hᵢh_{t−i}|·Δx / (Σhᵢ·Δx)². A uniform h gives C = 2. The ratio 1.4557/2 would be 0.73, not the reported 0.2285. So the scoring probably adds extra normalisation or penalties, and the exact formula is uncertain.

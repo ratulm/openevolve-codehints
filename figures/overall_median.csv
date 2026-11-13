@@ -1,0 +1,7 @@
+arm,median % improvement over start (across 10 problems)
+NoHints (10 iters),51.9
+NoHints (20 iters),129.3
+NoHints (40 iters),133.2
+NoHints (80 iters),137.1
+Hints (10 iters),291.5
+Hints (20 iters),345.0

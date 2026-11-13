@@ -1,0 +1,1 @@
+I don't recognise this as a published benchmark. It looks like a custom variant of the first autocorrelation inequality (the AlphaEvolve-style problem) with an added linear position weight, and I know of no literature on it. The best known value for exactly this instance is unknown. V_REF = 0.0287461148884 is probably the task's own reference solution, not a published record.

@@ -1,0 +1,5 @@
+I couldn't find an evaluator, so this is a guess based only on the code.
+
+**(a)** The program places 18 points in a 2D annulus with inner radius 0.4 and outer radius 1.0. The function `g` pushes any point back inside those bounds. This looks like a spread-points problem: keep every pair of points as far apart as possible.
+
+**(b)** Best guess: `combined_score = min_pairwise_distance / reference`, where the reference is likely a best-known value. The current ring at radius 0.55 has a minimum gap of about 0.191, so a 0.2199 score implies a reference near 0.87. It is also possible that the score is the minimum distance with some other scaling, or the smallest triangle area (a Heilbronn-type problem).

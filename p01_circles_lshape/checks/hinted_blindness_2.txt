@@ -1,0 +1,7 @@
+(a) The program packs 21 non-overlapping circles inside an L-shaped region: the unit square with the top-right block [0.6,1]×[0.6,1] removed. Every circle has to sit fully inside the region, with a tolerance of 1e-9.
+
+(b) `combined_score` is a weighted sum of radii, normalized by a reference value. Circles further to the right count for more:
+
+combined_score = Σᵢ rᵢ·(0.2 + xᵢ)² / 1.30
+
+If the layout is invalid (wrong count, a circle outside the region, any overlap, an exception, or a run over 30 s), the score is 0.

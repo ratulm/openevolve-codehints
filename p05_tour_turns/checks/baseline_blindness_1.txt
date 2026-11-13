@@ -1,0 +1,7 @@
+(a) The program solves a 46-city Euclidean Travelling Salesman Problem. `f(p)` returns a visiting order (a permutation of the points). Right now it just sorts the points by angle around their centroid, which gives a star-shaped tour that zig-zags in and out and is far from optimal.
+
+(b) My best guess, without seeing the evaluator, is that `combined_score` compares the closed tour's length to a reference tour:
+
+`combined_score = L_ref / L_tour`
+
+`L_ref` would be the optimal or near-optimal tour length, around 480–500 for 46 random points on a 100×100 grid. A score of 0.353 means the current tour is about 2.8 times longer than that reference.

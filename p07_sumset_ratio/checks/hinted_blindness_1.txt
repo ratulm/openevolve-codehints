@@ -1,0 +1,7 @@
+**(a)** The program is solving the "more sums than differences" (MSTD) problem. It has to pick a small set A of distinct integers from 0 to 299, with at most 60 of them, so that the sumset A+A is large compared with the difference set A−A.
+
+**(b)** My best guess is:
+
+combined_score = |A+A|² / (|A−A| · |A|^1.5) / C, with C ≈ 2.51
+
+This matches the current output. The current set is an arithmetic progression of 40 numbers, so |A+A| = |A−A| = 79. The raw value is 79/40^1.5 ≈ 0.3123, and dividing by 2.5 gives 0.1249. The reported score of 0.1243 implies C ≈ 2.512. Invalid sets score 0.

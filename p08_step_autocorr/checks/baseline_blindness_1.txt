@@ -1,0 +1,3 @@
+(a) I'm not sure what the task is. The program returns 50 non-negative weights that sum to 1, which looks like a step function for an autocorrelation or autoconvolution bound problem of the AlphaEvolve kind. I couldn't confirm this because my test command needed approval and didn't run. I checked the obvious candidates by hand and none gives 0.4112.
+
+(b) Best guess: combined_score = best_known_bound / achieved_C, where C = max(a∗a)·n / (Σa)², so lower C scores higher. By my hand estimate, this ramp's C under the standard scaling doesn't give 0.4112, so the evaluator must use some normalization I don't know.

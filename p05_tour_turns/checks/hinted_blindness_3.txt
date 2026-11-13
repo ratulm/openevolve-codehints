@@ -1,0 +1,9 @@
+(a) The program plans a closed tour through 46 fixed 2D points, visiting each one exactly once. A tour is penalized for its length and also for sharp turns. It is a travelling-salesman problem with a cost on turning angles.
+
+(b) `combined_score` is probably reference_cost / cost, where:
+
+- cost = Σ‖p₍ᵢ₊₁₎ − pᵢ‖ (closed tour) + 10·Σᵢ θᵢ²
+- θᵢ is the turning angle in radians at each of the 46 vertices, wraparound included.
+- reference_cost ≈ 1116.27.
+
+An invalid permutation, an exception or a run over 30 s scores 0. The current 0.3531 implies a cost of about 3161.

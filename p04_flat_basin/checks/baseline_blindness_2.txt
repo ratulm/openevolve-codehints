@@ -1,0 +1,5 @@
+**(a)** It's black-box minimization of the 3-D function `h(x)` over the box [-4,4]³. `h` is 13, minus a sum of five Gaussian wells, plus sine/cosine ripples, a small quadratic term, and a penalty for leaving the box. The broad well at (1.8,-1.6,1.2) is a decoy. The global minimum is most likely at the narrow well (σ=0.15) near (-1.85,1.4,-0.9), which sits on top of the (-2,1.5,-1) well. The current code only tries 12 random points.
+
+**(b)** I don't have the evaluator code, so this is a guess. Most likely the score is the normalized gap to the optimum, clipped to [0,1]:
+`combined_score ≈ clip((h_ref − h(x)) / (h_ref − h*), 0, 1)`
+`h_ref` would be a baseline such as 13 and `h*` the global minimum (≈2).

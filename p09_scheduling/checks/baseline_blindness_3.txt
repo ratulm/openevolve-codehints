@@ -1,0 +1,7 @@
+(a) **Task:** This looks like single-machine scheduling to minimise total weighted tardiness. `a` holds the processing times (2–12), `b` the due dates (1–170) and `c` the weights (1–9). `f` returns a job order. Right now that order is plain earliest-due-date (EDD), which ignores the weights.
+
+(b) **`combined_score`:** This is a guess, since the evaluator code isn't shown. It probably compares the schedule against a reference such as the best known solution:
+
+combined_score = WT_ref / WT(schedule)
+
+where WT = Σ cⱼ·max(0, Cⱼ − bⱼ) and Cⱼ is job j's completion time. On that reading, 0.4696 means the EDD schedule's weighted tardiness is about 2.1× the reference.

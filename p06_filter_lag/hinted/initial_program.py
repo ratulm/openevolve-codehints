@@ -1,0 +1,68 @@
+# EVOLVE-BLOCK-START
+# Goal: choose the 24 taps h[0..23] of a causal FIR filter that cleans a noisy
+# signal: output[t] = sum_k h[k] * noisy[t - k], so h[0] multiplies the newest
+# sample and h[23] the oldest. This program returns ONLY the taps. The evaluator
+# applies them to its own fixed set of hidden test signals, which this program
+# never sees.
+#
+# Hidden test signals: 64 signals of 400 samples each, noisy = clean + noise.
+#   clean: a continuous piecewise-linear drift (random start level in [-1, 1],
+#     slope redrawn uniformly from [-0.03, 0.03] per sample every 40 to 90
+#     samples) plus 4 abrupt jumps per signal. Each jump has magnitude uniform
+#     in [1, 3] with random sign, and jumps are at least 35 samples apart.
+#   noise: coloured noise e[t] = 0.7 * e[t-1] + w[t] with w Gaussian of standard
+#     deviation 0.45, plus independent white Gaussian noise of standard
+#     deviation 0.45.
+#
+# Score: over samples t >= 23 of all signals the evaluator computes
+#   cost = E_track + 8 * E_lag + 0.1 * E_rough
+#   E_track = mean of (output - clean)**2 over all samples
+#   E_lag   = mean, over every jump and over the 8 samples starting at the jump
+#             (t = jump, ..., jump + 7), of ((output - clean) / jump_size)**2,
+#             where clean already includes the jump
+#   E_rough = mean of (output[t+1] - output[t])**2
+# and the score is reference_cost / cost with reference_cost about 1.452, so 1.0
+# means matching the reference (higher is possible). Being late after a jump is
+# penalised heavily and roughness only lightly. The score is NOT the plain mean
+# squared error to the clean signal and NOT a smoothness measure: a filter that
+# smooths well but responds late to jumps scores badly.
+#
+# Validity: run() must return exactly 24 finite numbers (a one-dimensional
+# array), each in [-2, 2] (no tolerance). Any violation, an exception, or a run
+# longer than 30 seconds scores 0.
+import numpy as np
+
+
+def f():
+    # Naive starting filter: a uniform moving average over the full 24 samples.
+    num_taps = 24
+    average_length = 24
+    filter_taps = np.zeros(num_taps)
+
+    # Equal weight on each of the most recent average_length samples.
+    for tap_index in range(average_length):
+        filter_taps[tap_index] = 1.0 / average_length
+
+    filter_taps = g(filter_taps)
+
+    return filter_taps
+
+
+def g(filter_taps):
+    # Limit every tap to the allowed range [-2, 2].
+    num_taps = filter_taps.shape[0]
+    limited_taps = np.zeros(num_taps)
+
+    for tap_index in range(num_taps):
+        limited_taps[tap_index] = min(max(filter_taps[tap_index], -2.0), 2.0)
+
+    return limited_taps
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+def run():
+    h = f()
+    return h

@@ -1,0 +1,7 @@
+**(a)** It picks 50 non-negative step heights a₀…a₄₉ so that a weighted peak of their autoconvolution is as small as possible. This is a variant of the autocorrelation-constant problem, with weights that make high shifts cost more. The current program just returns a ramp from 1 to 50.
+
+**(b)** My best guess is that `combined_score` is simply the score itself:
+
+combined_score = 0.0287461148884 / V, where V = maxₖ[(1 + 3k/98)·(a∗a)ₖ] / (Σaᵢ)²
+
+The score is 0 if the output is invalid. For the ramp, 0.4112 means V ≈ 0.0699.

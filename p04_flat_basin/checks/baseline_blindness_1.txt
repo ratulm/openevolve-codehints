@@ -1,0 +1,4 @@
+**(a)** The program tries to find the lowest value of `h(x)` over the box [-4,4]³. `h` is a sum of Gaussian wells plus trig ripples, a small quadratic term and a penalty for leaving the box. The deepest well is a deceptive one: a narrow spike (σ=0.15) at about (-1.85, 1.4, -0.9), sitting inside a broader well at (-2, 1.5, -1). Together they give h≈2, while the wide well at (1.8, -1.6, 1.2) only reaches about 4. Right now the program just takes the best of 12 random samples.
+
+**(b)** This is a guess; I haven't seen the evaluator. Most likely the score is based on the gap to the true minimum:
+`combined_score = 1 / (1 + max(0, h(x_returned) − h*))`, where h* ≈ the global minimum near the narrow spike.

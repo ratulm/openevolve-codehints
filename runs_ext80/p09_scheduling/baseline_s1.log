@@ -1,0 +1,269 @@
+2026-11-11 12:47:15,618 - INFO - Logging to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/logs/openevolve_20261111_124715.log
+2026-11-11 12:47:15,645 - INFO - Set random seed to 1 for reproducibility
+2026-11-11 12:47:15,646 - INFO - Initialized ClaudeCodeLLM with model: us.anthropic.claude-opus-5-5
+2026-11-11 12:47:15,646 - INFO - Initialized LLM ensemble with models: us.anthropic.claude-opus-5-5 (weight: 1.00)
+2026-11-11 12:47:15,646 - INFO - Initialized ClaudeCodeLLM with model: us.anthropic.claude-opus-5-5
+2026-11-11 12:47:15,653 - INFO - Initialized prompt sampler
+2026-11-11 12:47:15,657 - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-11-11 12:47:15,657 - INFO - Initialized program database with 0 programs
+2026-11-11 12:47:15,660 - INFO - Successfully loaded evaluation function from <STUDY>/p09_scheduling/evaluator.py
+2026-11-11 12:47:15,660 - INFO - Initialized evaluator with <STUDY>/p09_scheduling/evaluator.py
+2026-11-11 12:47:15,660 - INFO - Initialized OpenEvolve with <STUDY>/p09_scheduling/baseline/initial_program.py
+2026-11-11 12:47:15,662 - INFO - Loaded database metadata with last_iteration=40
+2026-11-11 12:47:15,662 - INFO - Loaded feature_stats for 2 dimensions
+2026-11-11 12:47:15,684 - INFO - Reconstructed islands: restored 38 programs to islands
+2026-11-11 12:47:15,684 - INFO - Loaded database with 38 programs from <STUDY>/runs_ext40/p09_scheduling/baseline_s1/checkpoints/checkpoint_40
+2026-11-11 12:47:15,685 - INFO - Island Status:
+2026-11-11 12:47:15,685 - INFO -  * Island 0: 11 programs, best=0.7275, avg=0.7176, diversity=82.98, gen=12 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:47:15,685 - INFO -    Island 1: 11 programs, best=0.7275, avg=0.7116, diversity=187.80, gen=11 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:47:15,685 - INFO -    Island 2: 8 programs, best=0.6989, avg=0.6963, diversity=253.30, gen=9 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:47:15,685 - INFO -    Island 3: 8 programs, best=0.7232, avg=0.7027, diversity=248.78, gen=8 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:47:15,685 - INFO - Loading checkpoint from <STUDY>/runs_ext40/p09_scheduling/baseline_s1/checkpoints/checkpoint_40
+2026-11-11 12:47:15,685 - INFO - Loaded database metadata with last_iteration=40
+2026-11-11 12:47:15,686 - INFO - Loaded feature_stats for 2 dimensions
+2026-11-11 12:47:15,703 - INFO - Reconstructed islands: restored 38 programs to islands
+2026-11-11 12:47:15,704 - INFO - Loaded database with 38 programs from <STUDY>/runs_ext40/p09_scheduling/baseline_s1/checkpoints/checkpoint_40
+2026-11-11 12:47:15,704 - INFO - Island Status:
+2026-11-11 12:47:15,704 - INFO -  * Island 0: 11 programs, best=0.7275, avg=0.7176, diversity=82.98, gen=12 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:47:15,704 - INFO -    Island 1: 11 programs, best=0.7275, avg=0.7116, diversity=187.80, gen=11 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:47:15,704 - INFO -    Island 2: 8 programs, best=0.6989, avg=0.6963, diversity=253.30, gen=9 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:47:15,704 - INFO -    Island 3: 8 programs, best=0.7232, avg=0.7027, diversity=248.78, gen=8 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:47:15,704 - INFO - Checkpoint loaded successfully (iteration 40)
+2026-11-11 12:47:15,704 - INFO - Resuming from checkpoint at iteration 41
+2026-11-11 12:47:15,704 - INFO - Skipping initial program addition (resuming from iteration 41 with 38 existing programs)
+2026-11-11 12:47:15,713 - INFO - Initialized process parallel controller with 4 workers
+2026-11-11 12:47:15,713 - INFO - Set max None tasks per child
+2026-11-11 12:47:15,714 - INFO - Started process pool with 4 processes
+2026-11-11 12:47:15,714 - INFO - Using island-based evolution with 4 islands
+2026-11-11 12:47:15,714 - INFO - Island Status:
+2026-11-11 12:47:15,714 - INFO -  * Island 0: 11 programs, best=0.7275, avg=0.7176, diversity=82.98, gen=12 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:47:15,714 - INFO -    Island 1: 11 programs, best=0.7275, avg=0.7116, diversity=187.80, gen=11 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:47:15,714 - INFO -    Island 2: 8 programs, best=0.6989, avg=0.6963, diversity=253.30, gen=9 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:47:15,714 - INFO -    Island 3: 8 programs, best=0.7232, avg=0.7027, diversity=248.78, gen=8 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:47:15,714 - INFO - Starting process-based evolution from iteration 41 for 40 iterations (total: 81)
+Loading checkpoint from <STUDY>/runs_ext40/p09_scheduling/baseline_s1/checkpoints/checkpoint_40
+Checkpoint loaded successfully (iteration 40)
+2026-11-11 12:47:15,807 - INFO - Early stopping disabled
+2026-11-11 12:47:35,794 - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 4, 'diversity': 3}
+2026-11-11 12:47:35,794 - INFO - Iteration 43: Program 1bb69d98-1f33-457d-960b-eb26d9bbfc1f (parent: 7cec4866-64d5-46f2-9201-98314ad4caa0) completed in 17.16s
+2026-11-11 12:47:35,794 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:47:36,072 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 7, 'diversity': 2}
+2026-11-11 12:47:36,072 - INFO - Iteration 42: Program d5296aeb-19dd-4f1c-a77e-9cebf0e6156c (parent: 3ba7852e-aea6-4275-93fe-b6138677238f) completed in 17.47s
+2026-11-11 12:47:36,072 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:47:42,945 - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 4, 'diversity': 4}
+2026-11-11 12:47:42,945 - INFO - Iteration 44: Program 6ddc64c0-c8fa-458f-8eeb-0c7f288a61d1 (parent: 9a7873fa-3120-4f24-942b-6a21d535ac94) completed in 24.26s
+2026-11-11 12:47:42,945 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:48:05,520 - INFO - Iteration 47: Program 5c99a201-432a-4704-8cc6-0dcf96b1d047 (parent: ef6e7b9e-c7c4-40c2-aaf1-7048e9a503da) completed in 22.57s
+2026-11-11 12:48:05,521 - INFO - Metrics: combined_score=0.7232
+2026-11-11 12:48:05,756 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 4}
+2026-11-11 12:48:05,756 - INFO - Island 0 MAP-Elites coverage reached 10.0% (10/100 cells)
+2026-11-11 12:48:05,756 - INFO - Iteration 41: Program 01b72f49-ea53-4c6a-9b21-b318ce64877c (parent: 5f960b7f-d8c0-49a3-88b2-3b9f999af841) completed in 47.17s
+2026-11-11 12:48:05,757 - INFO - Metrics: combined_score=0.7170
+2026-11-11 12:48:22,346 - INFO - Iteration 49: Program 4ed8d92d-29b8-4e1f-b55f-3caf1bd8c180 (parent: 7cec4866-64d5-46f2-9201-98314ad4caa0) completed in 16.58s
+2026-11-11 12:48:22,346 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:48:27,346 - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 6, 'diversity': 1}
+2026-11-11 12:48:27,346 - INFO - Iteration 45: Program 9aa9d2a3-5a8e-49dd-b386-c88d9a66ba25 (parent: 22bae0cd-d7df-44b4-84e1-29139d4b5434) completed in 51.55s
+2026-11-11 12:48:27,346 - INFO - Metrics: combined_score=0.6989
+2026-11-11 12:48:27,346 - INFO - Checkpoint interval reached at iteration 45
+2026-11-11 12:48:27,347 - INFO - Island Status:
+2026-11-11 12:48:27,347 - INFO -  * Island 0: 13 programs, best=0.7275, avg=0.7183, diversity=222.97, gen=14 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:48:27,347 - INFO -    Island 1: 14 programs, best=0.7275, avg=0.7150, diversity=98.03, gen=14 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:48:27,347 - INFO -    Island 2: 9 programs, best=0.6989, avg=0.6966, diversity=253.30, gen=10 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:48:27,347 - INFO -    Island 3: 9 programs, best=0.7232, avg=0.7050, diversity=209.50, gen=9 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:48:27,396 - INFO - Saved database with 45 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_45
+2026-11-11 12:48:27,397 - INFO - Saved best program at checkpoint 45 with metrics: combined_score=0.7275
+2026-11-11 12:48:27,397 - INFO - Saved checkpoint at iteration 45 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_45
+2026-11-11 12:48:29,436 - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 4, 'diversity': 6}
+2026-11-11 12:48:29,436 - INFO - Iteration 48: Program ba5e37a2-d791-4acd-8a85-2593597271d2 (parent: ac6c86a6-3f5f-4522-a958-02c4638952d6) completed in 23.92s
+2026-11-11 12:48:29,436 - INFO - Metrics: combined_score=0.7232
+2026-11-11 12:48:30,411 - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 7, 'diversity': 1}
+2026-11-11 12:48:30,412 - INFO - Iteration 46: Program 7c63b085-1cbf-49e2-820e-cb3e4cb7ee6d (parent: d362f1ff-fa5f-481b-8d75-b5841be17d24) completed in 54.34s
+2026-11-11 12:48:30,412 - INFO - Metrics: combined_score=0.6951
+2026-11-11 12:48:38,659 - INFO - Iteration 50: Program 22022bfa-0a51-4f17-8972-ec11690ad07b (parent: 3ba7852e-aea6-4275-93fe-b6138677238f) completed in 16.32s
+2026-11-11 12:48:38,659 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:48:38,659 - INFO - Checkpoint interval reached at iteration 50
+2026-11-11 12:48:38,659 - INFO - Island Status:
+2026-11-11 12:48:38,659 - INFO -  * Island 0: 14 programs, best=0.7275, avg=0.7189, diversity=209.75, gen=15 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:48:38,659 - INFO -    Island 1: 14 programs, best=0.7275, avg=0.7150, diversity=98.03, gen=14 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:48:38,659 - INFO -    Island 2: 10 programs, best=0.6989, avg=0.6964, diversity=253.30, gen=11 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:48:38,659 - INFO -    Island 3: 10 programs, best=0.7232, avg=0.7068, diversity=209.50, gen=10 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:48:38,741 - INFO - Saved database with 48 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_50
+2026-11-11 12:48:38,742 - INFO - Saved best program at checkpoint 50 with metrics: combined_score=0.7275
+2026-11-11 12:48:38,742 - INFO - Saved checkpoint at iteration 50 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_50
+2026-11-11 12:48:44,600 - INFO - Iteration 52: Program 3d357900-b341-41d9-9a74-998cf39e4fb6 (parent: d197d00c-6666-41ff-b549-566cd026a3eb) completed in 15.16s
+2026-11-11 12:48:44,600 - INFO - Metrics: combined_score=0.7232
+2026-11-11 12:48:56,960 - INFO - Iteration 53: Program f3e3dd2f-e2cb-43d2-9df4-fab6fc97e167 (parent: 32e4b890-8149-4b0b-8694-fb396805eb8f) completed in 26.54s
+2026-11-11 12:48:56,960 - INFO - Metrics: combined_score=0.6989
+2026-11-11 12:49:08,156 - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 7, 'diversity': 1}
+2026-11-11 12:49:08,156 - INFO - Iteration 54: Program 01d9ad15-487b-4da6-bee6-38cc0dbe4e2a (parent: 1bb69d98-1f33-457d-960b-eb26d9bbfc1f) completed in 29.50s
+2026-11-11 12:49:08,156 - INFO - Metrics: combined_score=0.6951
+2026-11-11 12:49:10,898 - INFO - Iteration 51: Program 7c1e5dd4-5bb7-46ef-933b-1c6956898d95 (parent: 6ddc64c0-c8fa-458f-8eeb-0c7f288a61d1) completed in 43.55s
+2026-11-11 12:49:10,898 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:49:20,799 - INFO - Iteration 55: Program 724426e8-e5ea-453a-bd5b-9c4964712beb (parent: d362f1ff-fa5f-481b-8d75-b5841be17d24) completed in 36.19s
+2026-11-11 12:49:20,800 - INFO - Metrics: combined_score=0.6951
+2026-11-11 12:49:20,800 - INFO - Checkpoint interval reached at iteration 55
+2026-11-11 12:49:20,800 - INFO - Island Status:
+2026-11-11 12:49:20,800 - INFO -  * Island 0: 15 programs, best=0.7275, avg=0.7176, diversity=209.75, gen=16 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:49:20,800 - INFO -    Island 1: 16 programs, best=0.7275, avg=0.7145, diversity=204.43, gen=16 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:49:20,800 - INFO -    Island 2: 11 programs, best=0.6989, avg=0.6963, diversity=253.30, gen=12 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:49:20,800 - INFO -    Island 3: 11 programs, best=0.7232, avg=0.7083, diversity=168.73, gen=11 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:49:20,839 - INFO - Saved database with 53 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_55
+2026-11-11 12:49:20,840 - INFO - Saved best program at checkpoint 55 with metrics: combined_score=0.7275
+2026-11-11 12:49:20,840 - INFO - Saved checkpoint at iteration 55 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_55
+2026-11-11 12:49:27,908 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 6, 'diversity': 1}
+2026-11-11 12:49:27,908 - INFO - Iteration 58: Program fde5ba63-3bc3-46ab-b287-52626d371895 (parent: 3a942b9a-618f-4a7f-a7ce-9f06eba152df) completed in 17.00s
+2026-11-11 12:49:27,908 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:49:29,974 - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 6, 'diversity': 2}
+2026-11-11 12:49:29,974 - INFO - Iteration 56: Program 06bc0a39-8c4b-485c-af69-9a8d72f9b87c (parent: 43f997cb-1a8a-4e9b-8386-b3904db85597) completed in 33.01s
+2026-11-11 12:49:29,974 - INFO - Metrics: combined_score=0.6960
+2026-11-11 12:49:39,846 - INFO - Iteration 60: Program 03d54254-4f4e-481f-8ad4-8e2ef8a2a102 (parent: 01b72f49-ea53-4c6a-9b21-b318ce64877c) completed in 11.94s
+2026-11-11 12:49:39,847 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:49:39,847 - INFO - Checkpoint interval reached at iteration 60
+2026-11-11 12:49:39,847 - INFO - Island Status:
+2026-11-11 12:49:39,847 - INFO -  * Island 0: 17 programs, best=0.7275, avg=0.7188, diversity=175.28, gen=18 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:49:39,847 - INFO -    Island 1: 16 programs, best=0.7275, avg=0.7145, diversity=204.43, gen=16 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:49:39,847 - INFO -    Island 2: 11 programs, best=0.6989, avg=0.6963, diversity=253.30, gen=12 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:49:39,847 - INFO -    Island 3: 12 programs, best=0.7232, avg=0.7073, diversity=187.53, gen=12 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:49:39,880 - INFO - Saved database with 56 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_60
+2026-11-11 12:49:39,881 - INFO - Saved best program at checkpoint 60 with metrics: combined_score=0.7275
+2026-11-11 12:49:39,881 - INFO - Saved checkpoint at iteration 60 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_60
+2026-11-11 12:49:54,247 - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 7, 'diversity': 2}
+2026-11-11 12:49:54,247 - INFO - Island 3 MAP-Elites coverage reached 10.0% (10/100 cells)
+2026-11-11 12:49:54,247 - INFO - Iteration 59: Program fb89b909-55a7-473b-969d-2569532ae091 (parent: 43f997cb-1a8a-4e9b-8386-b3904db85597) completed in 33.45s
+2026-11-11 12:49:54,247 - INFO - Metrics: combined_score=0.6922
+2026-11-11 12:50:02,255 - INFO - Iteration 62: Program 0a5b4436-dad5-494e-8989-e7b6a83d1e41 (parent: 9a7873fa-3120-4f24-942b-6a21d535ac94) completed in 22.41s
+2026-11-11 12:50:02,255 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:50:05,771 - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 6, 'diversity': 1}
+2026-11-11 12:50:05,771 - INFO - Iteration 61: Program e0da0dcd-549f-4816-b47c-139d1e316d1f (parent: e7c4c4f2-33c3-458a-b2ad-6835e2dae06c) completed in 35.79s
+2026-11-11 12:50:05,772 - INFO - Metrics: combined_score=0.6989
+2026-11-11 12:50:10,531 - INFO - Island 2 MAP-Elites cell replaced: {'complexity': 8, 'diversity': 2} (fitness: 0.696 -> 0.699)
+2026-11-11 12:50:10,531 - INFO - Iteration 57: Program ab15fa75-3100-46a8-b3dc-b8bd22f3d09b (parent: d362f1ff-fa5f-481b-8d75-b5841be17d24) completed in 62.37s
+2026-11-11 12:50:10,531 - INFO - Metrics: combined_score=0.6989
+2026-11-11 12:50:18,199 - INFO - Island 0 MAP-Elites cell replaced: {'complexity': 9, 'diversity': 9} (fitness: 0.721 -> 0.727)
+2026-11-11 12:50:18,200 - INFO - Iteration 64: Program cf095e0e-b8f0-4ae9-8fc8-c351602f6552 (parent: d04b748c-0ded-41f1-bc5d-57c65740f1e4) completed in 15.94s
+2026-11-11 12:50:18,200 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:50:26,080 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 7, 'diversity': 3}
+2026-11-11 12:50:26,080 - INFO - Iteration 66: Program 832c465f-bfb1-434a-98f1-7c63ac359b77 (parent: 3ba7852e-aea6-4275-93fe-b6138677238f) completed in 15.55s
+2026-11-11 12:50:26,080 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:50:33,105 - INFO - Island 2 MAP-Elites cell replaced: {'complexity': 7, 'diversity': 1} (fitness: 0.695 -> 0.696)
+2026-11-11 12:50:33,105 - INFO - Iteration 63: Program bde3c541-93ca-4ba9-904b-c744140aaef2 (parent: 43f997cb-1a8a-4e9b-8386-b3904db85597) completed in 38.85s
+2026-11-11 12:50:33,105 - INFO - Metrics: combined_score=0.6960
+2026-11-11 12:50:41,779 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:50:41,780 - INFO - Population size after cleanup: 60
+2026-11-11 12:50:41,780 - INFO - Iteration 65: Program c5e16881-a68a-48c8-89c5-0df0f4bcbfb7 (parent: 43f997cb-1a8a-4e9b-8386-b3904db85597) completed in 36.00s
+2026-11-11 12:50:41,780 - INFO - Metrics: combined_score=0.6960
+2026-11-11 12:50:41,780 - INFO - Checkpoint interval reached at iteration 65
+2026-11-11 12:50:41,780 - INFO - Island Status:
+2026-11-11 12:50:41,780 - INFO -  * Island 0: 18 programs, best=0.7275, avg=0.7196, diversity=175.28, gen=20 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:50:41,780 - INFO -    Island 1: 18 programs, best=0.7275, avg=0.7144, diversity=193.32, gen=18 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:50:41,780 - INFO -    Island 2: 10 programs, best=0.6989, avg=0.6968, diversity=269.47, gen=14 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:50:41,780 - INFO -    Island 3: 14 programs, best=0.7232, avg=0.7054, diversity=187.53, gen=14 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:50:41,816 - INFO - Saved database with 60 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_65
+2026-11-11 12:50:41,817 - INFO - Saved best program at checkpoint 65 with metrics: combined_score=0.7275
+2026-11-11 12:50:41,817 - INFO - Saved checkpoint at iteration 65 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_65
+2026-11-11 12:50:46,555 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:50:46,555 - INFO - Population size after cleanup: 60
+2026-11-11 12:50:46,556 - INFO - Iteration 67: Program cfd33f27-265e-4006-aed9-ef27b1cf0931 (parent: 3d357900-b341-41d9-9a74-998cf39e4fb6) completed in 28.34s
+2026-11-11 12:50:46,556 - INFO - Metrics: combined_score=0.6960
+2026-11-11 12:50:55,119 - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 3, 'diversity': 6}
+2026-11-11 12:50:55,120 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:50:55,120 - INFO - Population size after cleanup: 60
+2026-11-11 12:50:55,120 - INFO - Iteration 68: Program 15814ba8-7cec-43ac-8a95-fa57448549b7 (parent: 7c1e5dd4-5bb7-46ef-933b-1c6956898d95) completed in 29.04s
+2026-11-11 12:50:55,120 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:51:07,501 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:07,501 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:07,501 - INFO - Iteration 69: Program 4bca3b2b-bfdd-407d-a73d-4e0b6d321668 (parent: 7c1e5dd4-5bb7-46ef-933b-1c6956898d95) completed in 34.40s
+2026-11-11 12:51:07,501 - INFO - Metrics: combined_score=0.6974
+2026-11-11 12:51:11,355 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-11-11 12:51:11,355 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:11,355 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:11,355 - INFO - Iteration 71: Program 851d781c-1a49-4c2f-a502-dcd56d7470c1 (parent: fde5ba63-3bc3-46ab-b287-52626d371895) completed in 24.80s
+2026-11-11 12:51:11,355 - INFO - Metrics: combined_score=0.7170
+2026-11-11 12:51:16,595 - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 5, 'diversity': 3}
+2026-11-11 12:51:16,596 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:16,596 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:16,596 - INFO - Iteration 70: Program 3ed2d2d6-3117-4909-aa21-451c969c65ca (parent: 3d357900-b341-41d9-9a74-998cf39e4fb6) completed in 34.81s
+2026-11-11 12:51:16,596 - INFO - Metrics: combined_score=0.6922
+2026-11-11 12:51:16,596 - INFO - Checkpoint interval reached at iteration 70
+2026-11-11 12:51:16,596 - INFO - Island Status:
+2026-11-11 12:51:16,596 - INFO -  * Island 0: 19 programs, best=0.7275, avg=0.7195, diversity=175.28, gen=21 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:51:16,596 - INFO -    Island 1: 20 programs, best=0.7275, avg=0.7142, diversity=246.62, gen=20 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:51:16,597 - INFO -    Island 2: 9 programs, best=0.6989, avg=0.6966, diversity=368.97, gen=15 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:51:16,597 - INFO -    Island 3: 12 programs, best=0.7232, avg=0.7069, diversity=187.53, gen=15 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:51:16,649 - INFO - Saved database with 60 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_70
+2026-11-11 12:51:16,651 - INFO - Saved best program at checkpoint 70 with metrics: combined_score=0.7275
+2026-11-11 12:51:16,651 - INFO - Saved checkpoint at iteration 70 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_70
+2026-11-11 12:51:37,742 - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 5, 'diversity': 2}
+2026-11-11 12:51:37,742 - INFO - Island 2 MAP-Elites coverage reached 10.0% (10/100 cells)
+2026-11-11 12:51:37,742 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:37,742 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:37,742 - INFO - Iteration 73: Program a964ab4b-99ea-4a0e-be13-e52a91c1bab8 (parent: ba5e37a2-d791-4acd-8a85-2593597271d2) completed in 30.23s
+2026-11-11 12:51:37,742 - INFO - Metrics: combined_score=0.6951
+2026-11-11 12:51:38,341 - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 5, 'diversity': 3}
+2026-11-11 12:51:38,341 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:38,341 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:38,341 - INFO - Iteration 74: Program b6c61e19-dee3-4f96-b266-b5c30e8974d2 (parent: ba5e37a2-d791-4acd-8a85-2593597271d2) completed in 26.99s
+2026-11-11 12:51:38,341 - INFO - Metrics: combined_score=0.6960
+2026-11-11 12:51:38,652 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:38,652 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:38,652 - INFO - Iteration 75: Program 7c69fa26-672b-42ab-8308-924fe5d0231d (parent: a1dcc549-d362-4aba-b411-2aae46900e22) completed in 22.05s
+2026-11-11 12:51:38,652 - INFO - Metrics: combined_score=0.7232
+2026-11-11 12:51:38,652 - INFO - Checkpoint interval reached at iteration 75
+2026-11-11 12:51:38,652 - INFO - Island Status:
+2026-11-11 12:51:38,652 - INFO -  * Island 0: 18 programs, best=0.7275, avg=0.7207, diversity=175.28, gen=21 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:51:38,652 - INFO -    Island 1: 18 programs, best=0.7275, avg=0.7161, diversity=246.62, gen=20 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:51:38,652 - INFO -    Island 2: 10 programs, best=0.6989, avg=0.6964, diversity=368.97, gen=16 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:51:38,652 - INFO -    Island 3: 14 programs, best=0.7232, avg=0.7073, diversity=187.53, gen=17 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:51:38,703 - INFO - Saved database with 60 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_75
+2026-11-11 12:51:38,705 - INFO - Saved best program at checkpoint 75 with metrics: combined_score=0.7275
+2026-11-11 12:51:38,705 - INFO - Saved checkpoint at iteration 75 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_75
+2026-11-11 12:51:44,804 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:51:44,805 - INFO - Population size after cleanup: 60
+2026-11-11 12:51:44,805 - INFO - Iteration 72: Program dbf10042-a9db-4296-a2c6-0d6cf67281b4 (parent: 22022bfa-0a51-4f17-8972-ec11690ad07b) completed in 49.68s
+2026-11-11 12:51:44,805 - INFO - Metrics: combined_score=0.6979
+2026-11-11 12:51:55,188 - INFO - Island 0 MAP-Elites cell replaced: {'complexity': 5, 'diversity': 0} (fitness: 0.721 -> 0.727)
+2026-11-11 12:51:55,189 - INFO - Iteration 78: Program e5b5a426-d35b-4d34-8ea7-2364f42bedb2 (parent: f3e3dd2f-e2cb-43d2-9df4-fab6fc97e167) completed in 16.54s
+2026-11-11 12:51:55,190 - INFO - Metrics: combined_score=0.7275
+2026-11-11 12:52:10,205 - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 5, 'diversity': 0}
+2026-11-11 12:52:10,205 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:52:10,205 - INFO - Population size after cleanup: 60
+2026-11-11 12:52:10,205 - INFO - Iteration 77: Program a55477cf-1053-4e8e-89cd-6592f4c81df4 (parent: e7c4c4f2-33c3-458a-b2ad-6835e2dae06c) completed in 31.85s
+2026-11-11 12:52:10,205 - INFO - Metrics: combined_score=0.6960
+2026-11-11 12:52:12,478 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:52:12,479 - INFO - Population size after cleanup: 60
+2026-11-11 12:52:12,479 - INFO - Iteration 76: Program 388d3fbc-948f-4986-a87b-066d3ac93138 (parent: 1bb69d98-1f33-457d-960b-eb26d9bbfc1f) completed in 34.73s
+2026-11-11 12:52:12,479 - INFO - Metrics: combined_score=0.6974
+2026-11-11 12:52:14,222 - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 5, 'diversity': 0}
+2026-11-11 12:52:14,223 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:52:14,223 - INFO - Population size after cleanup: 60
+2026-11-11 12:52:14,223 - INFO - Iteration 80: Program 2e444cd9-b35f-443f-9ad7-af0e851c6381 (parent: 22bae0cd-d7df-44b4-84e1-29139d4b5434) completed in 19.03s
+2026-11-11 12:52:14,223 - INFO - Metrics: combined_score=0.6989
+2026-11-11 12:52:14,223 - INFO - Checkpoint interval reached at iteration 80
+2026-11-11 12:52:14,223 - INFO - Island Status:
+2026-11-11 12:52:14,223 - INFO -  * Island 0: 17 programs, best=0.7275, avg=0.7223, diversity=175.28, gen=23 (best: ad21c797-50b2-472c-b63e-7a25403b4936)
+2026-11-11 12:52:14,223 - INFO -    Island 1: 19 programs, best=0.7275, avg=0.7150, diversity=246.62, gen=22 (best: 3a78caba-f274-4206-92a9-a1d5990e02e9)
+2026-11-11 12:52:14,223 - INFO -    Island 2: 11 programs, best=0.6989, avg=0.6966, diversity=258.80, gen=17 (best: d362f1ff-fa5f-481b-8d75-b5841be17d24)
+2026-11-11 12:52:14,223 - INFO -    Island 3: 13 programs, best=0.7232, avg=0.7061, diversity=189.22, gen=17 (best: 43f997cb-1a8a-4e9b-8386-b3904db85597)
+2026-11-11 12:52:14,252 - INFO - Saved database with 60 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_80
+2026-11-11 12:52:14,253 - INFO - Saved best program at checkpoint 80 with metrics: combined_score=0.7275
+2026-11-11 12:52:14,253 - INFO - Saved checkpoint at iteration 80 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_80
+2026-11-11 12:52:21,745 - INFO - New MAP-Elites cell occupied in island 2: {'complexity': 8, 'diversity': 4}
+2026-11-11 12:52:21,745 - INFO - Population size (61) exceeds limit (60), removing 1 programs
+2026-11-11 12:52:21,745 - INFO - Population size after cleanup: 60
+2026-11-11 12:52:21,745 - INFO - Iteration 79: Program fd699afd-bde3-4b1a-9e85-3824018dc566 (parent: d362f1ff-fa5f-481b-8d75-b5841be17d24) completed in 36.94s
+2026-11-11 12:52:21,745 - INFO - Metrics: combined_score=0.6951
+2026-11-11 12:52:21,745 - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-11-11 12:52:21,787 - INFO - Saved database with 60 programs to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_80
+2026-11-11 12:52:21,787 - INFO - Saved best program at checkpoint 80 with metrics: combined_score=0.7275
+2026-11-11 12:52:21,788 - INFO - Saved checkpoint at iteration 80 to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_80
+2026-11-11 12:52:21,803 - INFO - Stopped process pool
+2026-11-11 12:52:21,803 - INFO - Using tracked best program: 3a78caba-f274-4206-92a9-a1d5990e02e9
+2026-11-11 12:52:21,803 - INFO - Evolution complete. Best program has metrics: combined_score=0.7275
+2026-11-11 12:52:21,804 - INFO - Saved best program to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/best/best_program.py with program info to <STUDY>/runs_ext80/p09_scheduling/baseline_s1/best/best_program_info.json
+
+Evolution complete!
+Best program metrics:
+  combined_score: 0.7275
+
+Latest checkpoint saved at: <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_80
+To resume, use: --checkpoint <STUDY>/runs_ext80/p09_scheduling/baseline_s1/checkpoints/checkpoint_80

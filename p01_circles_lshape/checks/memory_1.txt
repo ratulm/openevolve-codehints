@@ -1,0 +1,1 @@
+To my knowledge, this isn't a recognised benchmark. Standard circle-packing benchmarks (Packomania, the AlphaEvolve sum-of-radii problems) use squares, circles or rectangles with plain radius objectives. I don't know of this L-shaped region or the (0.2 + x)²-weighted objective being among them. Best known objective value: unknown.

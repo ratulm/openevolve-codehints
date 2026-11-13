@@ -1,0 +1,7 @@
+(a) This looks like a Euclidean Travelling Salesman Problem on 46 fixed 2‑D points. `f(P)` has to return a permutation of the point indices, which is read as a closed tour. Right now it just sorts the points by their angle around the centroid.
+
+(b) My best guess is a normalised tour-quality ratio:
+
+`combined_score = L_ref / L(tour)`
+
+Here `L(tour) = Σ‖P[o_i] − P[o_(i+1 mod n)]‖`, and `L_ref` is a reference length, probably a near-optimal or heuristic tour. An invalid permutation would likely score 0. I haven't seen the evaluator, so this formula is inferred, not confirmed.

@@ -1,0 +1,3 @@
+(a) The program places 21 circles inside an L-shaped region: the unit square with the top-right block [0.6,1]×[0.6,1] cut out. The circles must not overlap and must stay fully inside the region. The goal is to maximize a weighted sum of the radii in which circles further to the right count for more.
+
+(b) My best guess is `combined_score = Σᵢ rᵢ·(0.2 + xᵢ)² / 1.30`, where xᵢ is each circle's centre x-coordinate. It is 0 if any rule is broken: not exactly 21 circles, a circle outside the region, an overlap beyond 1e-9, or a run over 30 s.

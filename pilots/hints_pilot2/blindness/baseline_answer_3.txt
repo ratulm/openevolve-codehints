@@ -1,0 +1,19 @@
+1. **What the program is for.** It looks like a circle-packing task. It places 21 circle centres in the unit square and gives each a radius. `g()` limits each radius by its distance to the walls, then scales down any pair of circles that overlap. The goal is almost certainly to maximise the sum of the radii while keeping every circle inside the square and not overlapping any other.
+
+2. **What I think `combined_score` measures.** My best guess:
+   `combined_score ≈ validity × (Σ rᵢ) / reference_sum`
+   Here `validity` is 1 if there are no overlaps or boundary violations and 0 otherwise. `reference_sum` is a best-known value, either for N=21 (about 2.36) or for the common N=26 benchmark (about 2.635).
+   The numbers don't fully fit, though. The current layout is a grid with spacing 0.12, so every radius comes out at about 0.06. The `w` term never binds, because every centre is at least about 0.085 from (0.6, 0.6). That gives Σr ≈ 1.26, which would score about 0.48–0.53 under my formula, not 0.1431. So one of these is probably true:
+   - the scorer expects a different N (for example 26, with missing circles counting as zero or as a penalty);
+   - it squares the ratio or uses some other nonlinear normalisation;
+   - floating-point touching at exactly d = 0.12 is being treated as a partial violation.
+   I would check the evaluator before trusting any formula. For now I'm treating it as "higher Σr from a valid packing scores higher".
+
+3. **How I'd raise the score.**
+   - **Use the whole square.** Right now the circles fill only about 0.6 × 0.6 of it. The `w` term and the 5/5/5/3/3 layout look like leftovers.
+   - **Start from a better layout.** I'd seed with a hexagonal or offset-row pattern (for example rows of 5-4-5-4-3), or with a known best packing for N=21.
+   - **Optimise radii and centres together.** I'd treat both as variables and maximise Σr with SLSQP under linear wall constraints (r ≤ x, r ≤ 1−x, and the same for y) and pairwise constraints (‖pᵢ−pⱼ‖ ≥ rᵢ+rⱼ). I'd run it from several jittered starting points and keep the best result.
+   - **Get optimal radii for fixed centres.** As a cheaper first step, I'd replace the greedy pairwise scaling in `g()` with a linear program that maximises Σr under the same constraints. The current scaling is order-dependent and gives away radius.
+   - **Stay safely valid.** At the end I'd shrink every radius by about 1e-9 so floating-point error can't trigger the validity check.
+
+   Realistically this should take Σr from about 1.26 to about 2.3 or more. That would roughly double the score if the scoring is linear in Σr.

@@ -1,0 +1,3 @@
+**(a) Task (my guess):** The program places 18 points in an annulus (inner radius 0.4, outer radius 1.0). Most likely the goal is to spread them out, as in a packing problem: maximize the smallest distance between any two points. `g` only pushes points back inside the annulus.
+
+**(b) Formula guess:** `combined_score ≈ min_pairwise_distance / best_known_min_distance`. On the 0.55 ring the smallest gap is 2·0.55·sin(π/18) ≈ 0.191, so 0.2199 would mean a reference value of about 0.87. I haven't confirmed this. I saw no evaluator code, and 0.2199 also equals 0.07π, which could point to an area- or coverage-based measure instead.

@@ -1,0 +1,7 @@
+arm,median score as a multiple of the starting score (across 10 problems)
+NoHints (10 iters),1.52
+NoHints (20 iters),2.29
+NoHints (40 iters),2.33
+NoHints (80 iters),2.37
+Hints (10 iters),3.91
+Hints (20 iters),4.45

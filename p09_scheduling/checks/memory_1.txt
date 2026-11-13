@@ -1,0 +1,1 @@
+I don't recognise this as a published benchmark. It looks like a randomly generated weighted-tardiness problem with family setup times, not a standard OR-Library instance like wt40/wt50/wt100. I don't know of any recorded best objective value for exactly this instance, so the best known value is unknown.

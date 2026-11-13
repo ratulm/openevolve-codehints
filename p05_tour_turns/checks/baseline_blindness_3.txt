@@ -1,0 +1,3 @@
+(a) The program solves a 46-city Euclidean Travelling Salesman Problem. `f` must return a permutation of the points in `P` that forms a closed tour. Right now it just sorts the points by their angle around the centroid, which gives a rough star-shaped tour.
+
+(b) My best guess is that `combined_score` compares a reference tour length to this tour's length: `combined_score = L_ref / L(tour)`, where `L(tour) = Σ‖P[o[i]] − P[o[(i+1) mod n]]‖` and `L_ref` is a near-optimal or baseline length. A shorter tour would score closer to 1. Invalid permutations probably score 0. I haven't checked this, because the evaluator isn't shown.

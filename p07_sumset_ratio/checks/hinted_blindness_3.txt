@@ -1,0 +1,6 @@
+(a) The program picks a set A of at most 60 distinct integers between 0 and 299. The aim is a sumset A+A that is large compared with the difference set A−A, while keeping A small. This is a "more sums than differences" (MSTD) construction problem.
+
+(b) My best guess:
+`combined_score = |A+A|² / (|A−A| · |A|^1.5) / C`, where C ≈ 2.51. Invalid output scores 0.
+
+Check against the current program: it returns an arithmetic progression of 40 numbers, so |A+A| = |A−A| = 79. That gives 79/40^1.5 ≈ 0.3123, and 0.3123/2.51 ≈ 0.1243, which matches the reported score.

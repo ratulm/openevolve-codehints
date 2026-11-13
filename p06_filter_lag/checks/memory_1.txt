@@ -1,0 +1,1 @@
+As far as I know, this isn't a published benchmark. It looks like a custom task: the 64 signals are hidden, and the reference filter behind reference_cost isn't given. So I know of no best objective value for this exact instance, and the answer is unknown. A strong design could only be estimated by simulating signals drawn from the stated noise and jump model.

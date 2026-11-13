@@ -1,0 +1,11 @@
+arm,iterations,median % improvement over start (across 10 problems)
+NoHints,10,51.9
+NoHints,20,129.3
+NoHints,40,133.2
+NoHints,80,137.1
+NoHints+notice,10,86.2
+NoHints+notice,20,124.8
+NoHints+notice,40,125.7
+NoHints+notice,80,140.0
+Hints,10,291.5
+Hints,20,345.0

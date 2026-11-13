@@ -1,0 +1,3 @@
+(a) The program places 21 circles inside the unit square without overlap and tries to make them as large as possible. `f()` puts the centres on a grid with 0.12 spacing, and `g()` sets each radius from the distance to the walls and to nearby circles.
+
+(b) My best guess is `combined_score = (Σ rᵢ / benchmark_sum) × validity`. `validity` is 1 if every circle is inside the square and none overlap, and 0 otherwise. `benchmark_sum` is the best known total radius for 21 circles. But all radii here are about 0.06, so Σr ≈ 1.26. That would need a benchmark near 8.8, which doesn't make sense. So the formula probably includes a penalty or extra term I can't identify. I'm not confident in this guess, and I didn't run the program to check.

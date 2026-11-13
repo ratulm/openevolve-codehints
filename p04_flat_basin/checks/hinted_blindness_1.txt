@@ -1,0 +1,7 @@
+(a) The program has to pick one point in the box [-4,4]³ for a fixed 3-D landscape: a constant 13 minus five Gaussian wells, plus a ripple, a weak bowl and a wall outside the box. The goal is the point whose whole neighbourhood is low on average, not the single lowest value. That favours a wide basin over a deep, narrow well.
+
+(b) My best guess:
+
+combined_score = 6.2517 / R(p), with R(p) = (1/27) Σ_{o∈{-0.5,0,0.5}³} landscape(p+o)
+
+An invalid result or a timeout scores 0. The current score of 0.4847 implies R ≈ 12.9.

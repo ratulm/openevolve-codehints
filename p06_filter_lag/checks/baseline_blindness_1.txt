@@ -1,0 +1,4 @@
+**(a)** I can't tell for sure from the code alone. It returns a 24-entry vector, every entry 1/24 (so they sum to 1), clipped to [−2, 2]. That looks like an extremal-function search, most likely an autocorrelation or convolution inequality (as in the AlphaEvolve benchmarks): find a step function that makes a ratio involving h∗h as small or large as possible.
+
+**(b)** My best guess is a score normalised against the best known result:
+`combined_score = best_known_bound / C(h)`, with `C(h) = max(h∗h)·n / (Σh)²` for a minimisation problem. If the problem is a maximisation, the ratio is inverted. I didn't run anything to check this.

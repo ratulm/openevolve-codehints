@@ -1,0 +1,3 @@
+(a) The program picks a processing order for 36 jobs on a single machine. The goal is to minimise total weighted tardiness. There is also a hidden setup time: a family is job index mod 4, and every switch between families adds 3 time units before the next job. The current code just sorts by earliest due date.
+
+(b) My best guess: combined_score = 10608 / Σⱼ wⱼ·max(0, Cⱼ − dⱼ). Here Cⱼ is job j's completion time including setups, dⱼ is its due date and wⱼ is its weight. An invalid permutation, an exception or a timeout scores 0.

@@ -1,0 +1,1 @@
+As far as I know, this isn't a recognised benchmark instance. It looks like a custom variant of point dispersion (spreading points out) in an annulus, using an anisotropic metric scaled by y. I know of no published best value for it, so the best known objective value is **unknown**. The score also depends on a "reference value" that isn't defined.

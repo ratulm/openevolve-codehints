@@ -1,0 +1,3 @@
+(a) The program has to find a closed tour that visits all 46 fixed 2D points exactly once and returns to the start. It's a travelling-salesman problem with an added penalty for turning: sharp turns cost extra, so the shortest tour is not necessarily the best one.
+
+(b) Best guess: combined_score = 1116.27 / (L + 10·Σθᵢ²). Here L is the Euclidean length of the closed tour and θᵢ is the turning angle at each of the 46 vertices, in radians (0 to π). An invalid permutation, an exception or a run over 30 seconds scores 0. The current tour, sorted by angle around the centroid, scores 0.3531, so its cost is about 3161.

@@ -1,0 +1,130 @@
+# EVOLVE-BLOCK-START
+# Goal: predict an unknown smooth quantity y that depends on two real inputs
+# (x1, x2), at inputs of which half lie OUTSIDE the region where it was measured.
+#
+# Data (defined in the fixed part below): TRAIN_INPUTS holds 80 measured points,
+# one row (x1, x2) each, with x1 in [0.5, 4] and x2 in [0, 5]. TRAIN_OUTPUTS
+# holds the 80 measured y values; each carries independent measurement noise of
+# standard deviation about 0.08. QUERY_INPUTS holds 50 rows (x1, x2). run()
+# must return the 50 predicted y values, in the same order as QUERY_INPUTS.
+#
+# Which queries count: 25 of the 50 queries lie inside the measured region and
+# are NOT scored at all. The other 25 lie outside it (x1 in (4, 7] and/or x2 in
+# (5, 8.5]) and are the only ones scored. The scored query indices are
+#     0, 1, 3, 5, 9, 10, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 29, 30,
+#     31, 32, 34, 37, 41, 42, 43
+#
+# Score: the evaluator knows the true noise-free y at every query. For each
+# scored query i let d_i = prediction_i - true_y_i and
+#     w_i = 8 if d_i < 0 (prediction too low), w_i = 1 otherwise.
+#     E = sqrt( mean over the 25 scored queries of w_i * d_i**2 )
+#     score = 1.1182 / E
+# So predicting too low costs 8 times as much squared error as predicting too
+# high by the same amount. 1.1182 is the E achieved by a reference predictor that
+# was built from the 80 measured points alone, so 1.0 means matching the
+# reference and higher is possible. For scale, the true y over the scored
+# queries has standard deviation of about 1.8. The score is NOT a symmetric
+# error, NOT the error over all 50 queries, and NOT the error on the measured
+# points: how closely the 80 measured points are reproduced, and the
+# predictions at the 25 unscored queries, do not enter the score.
+#
+# Validity: run() must return exactly 50 finite real numbers (a 1-D sequence of
+# length 50). A wrong length or shape, NaN or infinite values, an exception, or
+# a run longer than 30 seconds scores 0.
+import numpy as np
+
+
+NOISE = 0.08
+# Optimal shift for 8:1 asymmetric *squared* loss is the 8/9 expectile
+# (z ~= 0.82 for a calibrated Gaussian); inflate slightly since GP
+# extrapolation variance tends to be underestimated.
+Z_ASYM = 1.0
+
+
+def kernel(A, B, l1, l2, sf, lv):
+    d = ((A[:, None, 0] - B[None, :, 0]) / l1) ** 2 + ((A[:, None, 1] - B[None, :, 1]) / l2) ** 2
+    return sf ** 2 * np.exp(-0.5 * d) + lv * (1.0 + A @ B.T)
+
+
+def predict_queries(train_inputs, train_outputs, query_inputs):
+    X, y, Q = train_inputs, train_outputs, query_inputs
+    ym = y.mean()
+    yc = y - ym
+    n = len(y)
+    best = None
+    for l1 in (0.7, 1.0, 1.5, 2.0, 3.0, 4.0):
+        for l2 in (0.7, 1.0, 1.5, 2.0, 3.0, 4.0):
+            for sf in (0.3, 1.0, 3.0):
+                for lv in (0.25, 1.0, 4.0, 16.0):
+                    K = kernel(X, X, l1, l2, sf, lv) + NOISE ** 2 * np.eye(n)
+                    try:
+                        L = np.linalg.cholesky(K)
+                    except np.linalg.LinAlgError:
+                        continue
+                    al = np.linalg.solve(L.T, np.linalg.solve(L, yc))
+                    lml = -0.5 * yc @ al - np.log(np.diag(L)).sum()
+                    if best is None or lml > best[0]:
+                        best = (lml, l1, l2, sf, lv, L, al)
+    _, l1, l2, sf, lv, L, al = best
+    Ks = kernel(Q, X, l1, l2, sf, lv)
+    mu = ym + Ks @ al
+    v = np.linalg.solve(L, Ks.T)
+    kss = sf ** 2 + lv * (1.0 + (Q * Q).sum(1))
+    var = np.maximum(kss - (v * v).sum(0), 0.0)
+    pred = mu + Z_ASYM * np.sqrt(var)
+    pred = np.where(np.isfinite(pred), pred, ym)
+    return pred
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+# 80 measured input points, one (x1, x2) pair each.
+TRAIN_INPUTS = np.array([
+    [1.290, 2.575], [3.071, 1.923], [1.395, 3.688], [2.360, 0.691], [2.466, 1.184],
+    [3.075, 3.879], [2.168, 0.691], [3.667, 4.255], [1.765, 2.516], [1.043, 1.123],
+    [3.639, 2.469], [0.889, 3.549], [3.648, 1.832], [2.023, 0.525], [3.362, 1.376],
+    [3.258, 0.848], [2.940, 2.949], [1.504, 2.215], [3.519, 2.853], [2.339, 0.443],
+    [3.254, 0.420], [2.749, 3.357], [3.331, 1.832], [3.232, 4.919], [3.685, 4.210],
+    [3.088, 2.583], [1.938, 3.308], [1.847, 1.489], [2.333, 2.114], [1.748, 3.753],
+    [1.106, 0.913], [2.240, 0.025], [2.154, 1.932], [3.794, 1.357], [2.217, 1.980],
+    [1.172, 0.213], [2.934, 1.609], [3.921, 3.253], [2.178, 0.044], [1.837, 4.148],
+    [3.203, 0.351], [1.728, 0.245], [1.690, 2.300], [2.448, 0.101], [3.476, 4.256],
+    [3.283, 3.327], [2.106, 1.754], [3.676, 0.307], [2.320, 2.993], [2.305, 1.642],
+    [0.638, 3.458], [3.357, 0.936], [1.667, 3.785], [1.551, 1.904], [2.238, 0.511],
+    [1.696, 4.694], [3.952, 1.777], [0.918, 0.923], [0.830, 0.209], [3.845, 4.100],
+    [1.046, 4.796], [1.324, 3.250], [1.242, 3.245], [1.633, 1.871], [1.452, 2.250],
+    [1.421, 2.071], [3.590, 4.529], [1.928, 0.923], [2.150, 4.900], [3.570, 1.231],
+    [0.723, 4.869], [1.222, 0.814], [1.037, 1.309], [1.568, 2.642], [2.931, 4.754],
+    [1.467, 2.035], [2.968, 2.551], [1.431, 0.154], [2.751, 3.297], [1.730, 0.063],
+])
+# The 80 noisy measured outputs y, in the same order as TRAIN_INPUTS.
+TRAIN_OUTPUTS = np.array([
+    1.181, 3.144, 0.777, 3.057, 2.944, 1.330, 2.932, 1.397, 1.536, 1.227,
+    3.048, 0.669, 3.773, 2.789, 3.700, 3.987, 2.056, 1.517, 2.438, 3.255,
+    4.141, 1.439, 3.410, 0.721, 1.638, 2.585, 1.090, 2.137, 2.225, 0.788,
+    1.432, 3.256, 2.302, 4.083, 2.249, 1.624, 3.103, 2.398, 2.948, 0.763,
+    4.046, 2.526, 1.593, 3.373, 1.318, 1.939, 2.353, 4.404, 1.703, 2.579,
+    0.746, 3.901, 0.738, 1.886, 3.018, 0.345, 3.873, 1.051, 0.888, 1.719,
+    0.474, 0.894, 0.693, 1.629, 1.429, 1.382, 1.243, 2.444, 0.413, 3.971,
+    0.727, 1.798, 1.256, 1.301, 0.662, 1.469, 2.343, 2.164, 1.685, 2.500,
+])
+# 50 query inputs (x1, x2). Only those outside the measured region are scored;
+# their indices are listed in the comment at the top of this file.
+QUERY_INPUTS = np.array([
+    [4.901, 5.874], [6.507, 6.314], [1.813, 3.332], [6.928, 3.288], [1.942, 3.205],
+    [5.952, 2.732], [3.496, 4.892], [3.337, 0.367], [2.269, 3.466], [6.963, 8.100],
+    [4.297, 4.482], [1.232, 2.172], [2.631, 3.347], [1.739, 3.575], [3.899, 0.884],
+    [3.360, 1.652], [3.398, 2.646], [5.789, 4.941], [2.808, 1.054], [4.778, 6.658],
+    [4.971, 0.766], [4.389, 3.709], [5.708, 0.757], [4.701, 7.340], [6.441, 7.684],
+    [5.014, 1.850], [1.045, 7.438], [3.610, 7.932], [2.700, 0.946], [2.733, 5.609],
+    [6.519, 0.609], [4.706, 7.052], [5.656, 5.500], [3.959, 3.602], [1.291, 7.852],
+    [1.575, 0.102], [2.666, 4.004], [3.309, 7.812], [3.456, 2.172], [3.326, 4.532],
+    [2.492, 2.503], [3.933, 7.439], [2.323, 5.594], [2.960, 7.630], [3.134, 2.580],
+    [3.780, 0.730], [0.984, 0.733], [2.741, 4.399], [0.714, 4.361], [2.212, 1.972],
+])
+
+
+def run():
+    return predict_queries(TRAIN_INPUTS, TRAIN_OUTPUTS, QUERY_INPUTS)

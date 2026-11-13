@@ -1,0 +1,4 @@
+(a) My best guess is that this is a combinatorial set-construction task. The program has to return up to k=60 distinct integers in [0, 300) that satisfy some additive property, most likely a Sidon/Golomb-type set (all pairwise sums or differences distinct) or a set with no 3-term progressions. Right now it returns an arithmetic progression (multiples of 7), which is close to the worst case for those properties.
+
+(b) I couldn't recover 0.1243 from simple ratios, so this is a low-confidence guess:
+combined_score ≈ valid_fraction × |A|/k, where valid_fraction is the share of pairwise sums or differences that are distinct.

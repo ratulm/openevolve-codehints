@@ -1,0 +1,7 @@
+(a) I can't tell for sure; the working directory is empty and there's no evaluator to check. It looks like an optimisation where the answer is a 24-value step function `h`, with values clipped to [−2, 2] so negatives are allowed. The best fit is an autoconvolution inequality, possibly AlphaEvolve's third one. Uniform `h = 1/24` is just a starting point.
+
+(b) Best guess:
+
+combined_score = best_known_bound / C(h), where C(h) = max_t |(h∗h)(t)| / (Σh)²
+
+That gives a score in (0, 1], and higher is better. The 0.2285 doesn't match my rough numbers for uniform `h`, so the bound or normalisation is probably different.

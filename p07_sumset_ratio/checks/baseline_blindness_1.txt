@@ -1,0 +1,9 @@
+I can't determine this with confidence. The program only prints a list, and I didn't run any evaluator. These are guesses.
+
+**(a)** The program picks up to k=60 distinct integers from [0, 300). The current version outputs a plain sequence: 40 numbers spaced 7 apart (0, 7, …, 273). I suspect this is a combinatorial construction task, such as a Sidon set or Golomb ruler (all pairwise sums or differences distinct), or a set with no 3-term progressions. Evenly spaced numbers violate all of those, which would explain the low 0.1243.
+
+**(b)** My best guess is set size times how well the constraint holds, scaled to the targets:
+
+combined_score ≈ (|A|/k) × (distinct pairwise sums / C(|A|+1, 2))
+
+For this list, the obvious versions of this formula give about 0.05–0.13, not exactly 0.1243.

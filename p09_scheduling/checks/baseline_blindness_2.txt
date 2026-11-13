@@ -1,0 +1,5 @@
+(a) This looks like single-machine scheduling with 36 jobs. `a` holds the processing times (2–12), `b` the due dates (1–170), and `c` the weights (1–9). The function returns the order the jobs run in. Right now it just sorts jobs by earliest due date and never uses `c`, which is a sign the objective is weighted.
+
+(b) This is a guess from the data, since I haven't seen the evaluator. It probably measures total weighted tardiness: each job's completion time Cⱼ adds cⱼ·max(0, Cⱼ−bⱼ).
+
+`combined_score ≈ best_known_WT / WT(permutation)`, with 0 if the output isn't a valid permutation. That would mean the current due-date order scores about 0.47 of the best known result.

@@ -1,0 +1,7 @@
+(a) The program places 18 points inside an annulus (radius 0.4 to 1.0) so that the closest pair is as far apart as possible. Closeness uses a weighted, height-scaled distance. Right now the code just puts all 18 points evenly on one circle of radius 0.55, with no optimisation.
+
+(b) combined_score is the smallest weighted pairwise distance divided by the reference value:
+
+score = min over i<j of sqrt(9(xi−xj)² + (yi−yj)²)·(1 + 0.2(yi+yj)) / 0.9314
+
+It is 0 if any point leaves the annulus, a coordinate isn't finite, or the run takes over 30 s.

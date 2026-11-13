@@ -1,0 +1,9 @@
+I didn't modify anything or run any code. This answer comes only from reading the program, and part (b) is a guess.
+
+**(a)** The program places 13 points in 2D. `g` forces every point into a region shaped like a trapezoid: y between 0 and 0.5, and x between 0.6y and 1−0.2y. This looks like a Heilbronn-type problem: spread n points in a fixed convex region so that the smallest triangle formed by any three of them is as large as possible.
+
+**(b)** My best guess:
+
+combined_score = (min over triples i<j<k of area(pᵢ,pⱼ,pₖ) / area of region) / best-known value for n=13
+
+with points outside the region treated as invalid. A min-pairwise-distance packing score is the main alternative.

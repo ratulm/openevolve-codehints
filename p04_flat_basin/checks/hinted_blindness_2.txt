@@ -1,0 +1,6 @@
+(a) The program picks one point in the box [-4,4]³ for a fixed 3-D landscape: a constant 13, minus five Gaussian wells, plus a ripple, a weak bowl and a wall outside the box. The aim is a point whose whole neighbourhood is low, not the deepest single point.
+
+(b) My best guess:
+combined_score = 6.2517 / mean over o∈{-0.5,0,0.5}³ of landscape(p+o)
+
+The score is 0 if the output is not 3 finite numbers in bounds, raises an exception, or runs past 30 s. The current 0.4847 implies a neighbourhood mean of about 12.9, which means the point sits on the flat plateau away from every well.

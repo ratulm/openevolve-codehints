@@ -1,0 +1,7 @@
+**(a)** The program has to pick one point in the box [-4,4]³ where the `landscape` function stays low across a whole neighbourhood, not just at the point itself. In other words, it should find a wide, moderately deep basin rather than the narrow global minimum.
+
+**(b)** My best guess, based on the problem description (I haven't seen the evaluator):
+
+combined_score = 6.2517 / R(p), where R(p) = (1/27) · Σ over o ∈ {-0.5, 0, 0.5}³ of landscape(p + o).
+
+It is 0 if the output is invalid, out of bounds, raises an error or takes too long. The current 0.4847 implies R ≈ 12.9, which is close to the flat plateau.
